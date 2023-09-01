@@ -222,6 +222,7 @@ img {
 .main-btn {
     display: block;
     min-width: 169px;
+    height: 56px;
 
     color: var(--white-background);
     font-size: 16px;
@@ -533,24 +534,28 @@ img {
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop.is-open {
+/* .backdrop.is-open {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-}
+} */
 
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 408px;
+    min-height: 584px;
 
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
 
     border-radius: 4px;
     background-color: var(--modal-background);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
 
-    padding: 72px 24px 0;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    padding: 72px 24px 24px 24px;
 }
 
 .modal-close {
@@ -570,14 +575,21 @@ img {
 
     padding: 0;
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-modal {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close:hover,
 .modal-close:focus {
     fill: var(--white-background);
     background-color: var(--pressed-state);
+    border: none;
 }
+
+
 
 .modal-title {
     color: var(--dark);
@@ -591,21 +603,18 @@ img {
 }
 
 .filling-form {
-    margin-bottom: 16px;
+    margin-bottom: 8px
 }
 
 .modal-label {
-    display: flex;
-    flex-direction: column;
     margin-bottom: 8px;
-}
 
-.modal-label-text {
     color: var(--subtle-text);
     font-size: 12px;
-    line-height: 1.16;
+    line-height: 1.17;
     letter-spacing: 0.04em;
 
+    display: block;
     margin-bottom: 4px;
 }
 
@@ -614,14 +623,16 @@ img {
 }
 
 .modal-input {
-    width: 360px;
+    width: 100%;
+    height: 40px;
     border-radius: 4px;
     border: 1px solid rgba(46, 47, 66, 0.40);
-    outline: none;
+    background-color: transparent;
+    outline: transparent;
 
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    padding: 11px 38px;
+    padding-left: 38px
 }
 
 .modal-input:focus {
@@ -631,31 +642,38 @@ img {
 .modal-icon {
     position: absolute;
     top: 50%;
-    left: 11px;
+    left: 16px;
     width: 18px;
     height: 24px;
 
     transform: translateY(-50%);
 
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    display: inline-block;
 }
 
-.modal-input:focus~.modal-icon {
+.modal-input:focus+.modal-icon {
     fill: var(--primary-brand);
+}
+
+.comment-thumb {
+    margin-bottom: 16px
 }
 
 .modal-comment {
     resize: none;
     height: 120px;
+    font-style: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: rgba(46, 47, 66, 0.4);
+
+    padding: 8px 16px;
+
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-textarea[name="user_feedback"]::placeholder {
-    color: rgba(46, 47, 66, 0.40);
-    font-size: 12px;
-    line-height: 1.16;
-    letter-spacing: 0.02em;
+.modal-comment:focus {
+    border: 1px solid var(--primary-brand);
 }
 
 .modal-comment.modal-input {
@@ -670,37 +688,39 @@ textarea[name="user_feedback"]::placeholder {
 .modal-text {
     color: var(--subtle-text);
     font-size: 12px;
-    line-height: 1.16;
-    letter-spacing: 0.02em;
-
-    display: inline-block;
-}
-
-.checkbox {
-    appearance: none;
-
+    line-height: 1.17;
+    letter-spacing: 0.04em;
 }
 
 .icon-check {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    fill: transparent;
+
     width: 16px;
     height: 16px;
-    border-radius: 1px;
+    border-radius: 2px;
     border: 1px solid rgba(46, 47, 66, 0.40);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
     margin-right: 8px;
 }
 
-.checkbox:checked+.icon-check {
-    background-image: url(../images/check.svg);
-    background-size: contain;
-    background-origin: border-box;
+.check {
+    width: 16px;
+    height: 16px;
+}
+
+.check-input:checked+.modal-text .icon-check {
+    background-color: var(--pressed-state);
+    border: none;
+    fill: var(--light);
 }
 
 .accent {
     color: var(--primary-brand);
     text-decoration: underline;
-}
-
-.modal .main-btn {
-    margin-bottom: 24px;
 }
