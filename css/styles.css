@@ -457,53 +457,59 @@ img {
     background-color: var(--Success);
 }
 
-.label-text {
-    display: block;
-    color: var(--white-background);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
+.subscribe-form {
+    display: flex;
+    gap: 24px;
+}
 
-    margin-bottom: 16px;
+.subscribe-label {
+    display: flex;
 }
 
 .subscribe-input {
     width: 264px;
+    height: 40px;
+
     color: var(--white-background);
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    padding-left: 16px;
 
     border-radius: 4px;
-    border: 1px solid var(--primary-brand);
+    border: 1px solid var(--white-background);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    background-color: transparent;
     outline: none;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-    background: var(--dark);
 
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    padding: 8px 0 8px 16px;
     margin-right: 24px;
 }
 
-.subscribe-input:placeholder-shown {
-    border: 1px solid var(--white-background);
+.subscribe-input::placeholder {
+    color: var(--white-background);
 }
 
 .subscribe-btn {
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 165px;
+    height: 40px;
 
     color: var(--white-background);
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
-    letter-spacing: 0.64px;
+    letter-spacing: 0.04em;
 
     border-radius: 4px;
     border: none;
-    background: var(--primary-brand);
+    background-color: var(--primary-brand);
 
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    padding: 8px 24px;
 }
 
 .subscribe-btn:hover,
@@ -531,11 +537,11 @@ img {
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .backdrop.is-open {
+.backdrop.is-open {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-} */
+}
 
 .modal {
     position: absolute;
