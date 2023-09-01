@@ -664,18 +664,18 @@ img {
 .modal-comment {
     resize: none;
     height: 120px;
-    font-style: 12px;
+    font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
     color: rgba(46, 47, 66, 0.4);
 
     padding: 8px 16px;
 
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-comment:focus {
-    border: 1px solid var(--primary-brand);
+    border-color: var(--primary-brand);
 }
 
 .modal-comment.modal-input {
